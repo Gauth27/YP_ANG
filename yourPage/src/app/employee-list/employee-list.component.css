@@ -1,0 +1,11 @@
+.employeeData {
+    height: 250px;
+    overflow-y: auto;
+}
+
+.pop-up {
+    position: absolute;
+    background-color: beige;
+    width: 300px;
+    z-index: 2;
+}

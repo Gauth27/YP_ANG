@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="employee-register.js" async defer></script>
+  </head>
+  <body>
+    <div>
+      <form id="register-form">
+        <div class="form-group col-md-6">
+          <label for="name">Full Name</label>
+          <input
+            formControlName="fullName"
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Full Name"
+          />
+        </div>
+        <div class="form-row col-md-8">
+          <div class="form-group col-md-2">
+            <label for="gender">Gender</label>
+            <select id="gender" class="form-control">
+              <option selected>Choose...</option>
+              <option>MALE</option>
+              <option>FEMALE</option>
+              <option>OTHERS</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="blood_group">Blood Group</label>
+            <select id="blood_group" class="form-control">
+              <option selected>Choose...</option>
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row col-md-8">
+          <div class="form-group col-md-2">
+            <label for="dateOfBirth">Date Of Birth</label>
+            <select id="dateOfBirth" class="form-control">
+              <option selected>Choose...</option>
+              <option>01012000</option>
+              <option></option>
+              <option></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="highest_Qualification">Highest Qualifiaction</label>
+          <input
+            type="text"
+            class="form-control"
+            id="highest_Qualification"
+            placeholder="Highest Qualifiaction"
+          />
+        </div>
+        <div class="form-row col-md-8">
+          <div class="form-group col-md-3">
+            <label for="pan">PAN</label>
+            <input
+              type="text"
+              class="form-control"
+              id="pan"
+              placeholder="PAN"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="aadhar">Aadhar Number</label>
+            <input
+              type="number"
+              class="form-control"
+              id="aadhar"
+              placeholder="Aadhar Number"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="passport">Passport</label>
+            <input
+              type="text"
+              class="form-control"
+              id="passport"
+              placeholder="Passport"
+            />
+          </div>
+        </div>
+        <div class="form-row col-md-8">
+          <div class="form-group col-md-3">
+            <label for="phone_number">Phone Number</label>
+            <input
+              type="number"
+              class="form-control"
+              id="phone_number"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="emergency_contact_number"
+              >Emergency Contact number</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="emergency_contact_number"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="bank_account">Bank Account Number</label>
+            <input
+              type="number"
+              class="form-control"
+              id="bank_account"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="form-row col-md-12">
+          <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            <textarea
+              type="number"
+              class="form-control"
+              id="address"
+              placeholder="Address"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-row col-md-8">
+          <div class="form-group col-md-4">
+            <label for="nationality">Country</label>
+            <select id="nationality" class="form-control">
+              <option selected>Choose...</option>
+              <option>INDIA</option>
+              <option>US</option>
+              <option>UK</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <select id="state" class="form-control">
+              <option selected>Choose...</option>
+              <option>KAR</option>
+              <option>TN</option>
+              <option>AP</option>
+              <option>KL</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <select id="city" class="form-control">
+              <option selected>Choose...</option>
+              <option>KAR</option>
+              <option>TN</option>
+              <option>AP</option>
+              <option>KL</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="pin_code">PIN Code</label>
+            <input type="number" class="form-control" id="pin_code" />
+          </div>
+        </div>
+
+        <div class="form-row col-md-12">
+          <div class="form-group col-md-3">
+            <label for="department">Department</label>
+            <select id="department" class="form-control">
+              <option selected>Choose...</option>
+              <option>ME</option>
+              <option>CAE</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="reporting">Reporting</label>
+            <select id="reporting" class="form-control">
+              <option selected>Choose...</option>
+              <option>DN</option>
+              <option>TN</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="grade">Grade</label>
+            <select id="grade" class="form-control">
+              <option selected>Choose...</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="designation">Designation</label>
+            <select id="designation" class="form-control">
+              <option selected>Choose...</option>
+              <option>Engineer</option>
+              <option>Sr. Engineer</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row col-md-6">
+          <div class="form-group col-md-3">
+            <label for="joining_date">Date Of Joining</label>
+            <select id="joining_date" class="form-control">
+              <option selected>Choose...</option>
+              <option>01012020</option>
+              <option></option>
+              <option></option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="last_working_date">Exit Date</label>
+            <select id="last_working_date" class="form-control">
+              <option selected>Choose...</option>
+              <option>01012022</option>
+              <option></option>
+              <option></option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row col-md-4">
+          <div class="custom-file">
+            <label class="custom-file-label" for="photo_image"
+              >Upload Photo</label
+            >
+            <input type="file" class="custom-file-input" id="photo_image" />
+          </div>
+          <div class="custom-file">
+            <label class="custom-file-label" for="documents"
+              >Upload Documents</label
+            >
+            <input type="file" class="custom-file-input" id="documents" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <router-outlet></router-outlet>
+  </body>
+</html>

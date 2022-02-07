@@ -1,0 +1,217 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form #f="ngForm" (ngSubmit)="onRegister(f)">
+                <div class="form-group col-md-6">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Full Name" ngModel name="name"
+                        required maxlength="200" #name="ngModel">
+                    <span *ngIf="!name.valid && name.touched">Enter the Full Name</span>
+                </div>
+                <div class="form-row col-md-8">
+                    <div class="form-group col-md-2">
+                        <label for="gender">Gender</label>
+                        <select id="gender" class="form-control" ngModel name="gender" required #gender="ngModel">
+                            <option selected>Choose...</option>
+                            <option>MALE</option>
+                            <option>FEMALE</option>
+                            <option>OTHERS</option>
+                        </select>
+                        <span *ngIf="!gender.valid && gender.touched">Select an Option</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="blood_group">Blood Group</label>
+                        <select id="blood_group" class="form-control" ngModel name="blood_group">
+                            <option selected>Choose...</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row col-md-8">
+                    <div class="form-group col-md-4">
+                        <label for="dateOfBirth">Date Of Birth</label>
+                        <input type="date" id="dateOfBirth" class="form-control" ngModel name="dateOfBirth" required
+                            #dateOfBirth="ngModel">
+                        <span *ngIf="!dateOfBirth.valid && dateOfBirth.touched">Enter D.O.B</span>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="highest_Qualification">Highest Qualifiaction</label>
+                    <input type="text" class="form-control" id="highest_Qualification"
+                        placeholder="Highest Qualifiaction" ngModel name="highest_Qualification" required
+                        maxlength="200" #highest_Qualification="ngModel" />
+                    <span *ngIf="!highest_Qualification.valid && highest_Qualification.touched">Enter
+                        Qualification</span>
+                </div>
+                <div class="form-row col-md-8">
+                    <div class="form-group col-md-3">
+                        <label for="pan">PAN</label>
+                        <input type="text" class="form-control" id="pan" placeholder="PAN" ngModel name="pan" required
+                            maxlength="10" #pan="ngModel" />
+                        <span *ngIf="!pan.valid && pan.touched">Enter PAN</span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="aadhar">Aadhar Number</label>
+                        <input type="number" class="form-control" id="aadhar" placeholder="Aadhar Number" ngModel
+                            maxlength="12" name="aadhar" required #aadhar="ngModel" />
+                        <span *ngIf="!aadhar.valid && aadhar.touched">Enter AADHAR Number</span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="passport">Passport</label>
+                        <input type="text" class="form-control" id="passport" placeholder="Passport" ngModel
+                            maxlength="20" name="passport" />
+                    </div>
+                </div>
+                <div class="form-row col-md-8">
+                    <div class="form-group col-md-3">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="number" class="form-control" id="phone_number" placeholder="" ngModel
+                            name="phone_number" required #phone_number="ngModel" />
+                        <span *ngIf="!phone_number.valid && phone_number.touched">Enter Phone Number</span>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="emergency_contact_number">Emergency Contact number</label>
+                        <input type="number" class="form-control" id="emergency_contact_number" placeholder="" ngModel
+                            name="emergency_contact_number" required #emergency_contact_number="ngModel" />
+                        <span *ngIf="!emergency_contact_number.valid && emergency_contact_number.touched">Enter
+                            Emergency Contact Number</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email" ngModel name="email"
+                            maxlength="200" required email  #email="ngModel" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="bank_account">Bank Account Number</label>
+                        <input type="number" class="form-control" id="bank_account" placeholder="" ngModel
+                            name="bank_account" #bank_account="ngModel" />
+                    </div>
+                </div>
+                <div class="form-row col-md-12">
+                    <div class="form-group col-md-6">
+                        <label for="address">Address</label>
+                        <textarea type="number" class="form-control" id="address" placeholder="Address" ngModel
+                            maxlength="500" name="address" required #address="ngModel"></textarea>
+                        <span *ngIf="!address.valid && address.touched">Enter Address</span>
+                    </div>
+                </div>
+                <div class="form-row col-md-8">
+                    <div class="form-group col-md-4">
+                        <label for="nationality">Country</label>
+                        <select id="nationality" class="form-control" ngModel name="nationality" required
+                            maxlength="200" #nationality="ngModel">
+                            <option selected>Choose...</option>
+                            <option>INDIA</option>
+                            <option>US</option>
+                            <option>UK</option>
+                        </select>
+                        <span *ngIf="!nationality.valid && nationality.touched">Enter Country</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="state">State</label>
+                        <select id="state" class="form-control" ngModel name="state" required #state="ngModel"
+                            maxlength="200">
+                            <option selected>Choose...</option>
+                            <option>KAR</option>
+                            <option>TN</option>
+                            <option>AP</option>
+                            <option>KL</option>
+                        </select>
+                        <span *ngIf="!state.valid && state.touched">Enter State</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="city">City</label>
+                        <input type="text" id="city" class="form-control" ngModel name="city" required #city="ngModel"
+                            maxlength="200" />
+                        <span *ngIf="!city.valid && city.touched">Enter City</span>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="pin_code">PIN Code</label>
+                        <input type="number" class="form-control" id="pin_code" ngModel name="pin_code" required
+                            maxlength="10" #pin_code="ngModel" />
+                        <span *ngIf="!pin_code.valid && pin_code.touched">Enter PIN Code</span>
+                    </div>
+                </div>
+
+                <div class="form-row col-md-12">
+                    <div class="form-group col-md-3">
+                        <label for="department">Department</label>
+                        <select id="department" class="form-control" ngModel name="department">
+                            <option selected value="Choose">Choose...</option>
+                            <option value="ME">ME</option>
+                            <option value="CAE">CAE</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="reporting">Reporting</label>
+                        <select id="reporting" class="form-control" ngModel name="reporting">
+                            <option selected>Choose...</option>
+                            <option>JN</option>
+                            <option>TN</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="grade">Grade</label>
+                        <select id="grade" class="form-control" ngModel name="grade">
+                            <option selected>Choose...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="designation">Designation</label>
+                        <select id="designation" class="form-control" ngModel name="designation">
+                            <option selected>Choose...</option>
+                            <option>Engineer</option>
+                            <option>Sr. Engineer</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row col-md-6">
+                    <div class="form-group col-md-3">
+                        <label for="joining_date">Date Of Joining</label>
+                        <input type="date" id="joining_date" class="form-control" ngModel name="joining_date">
+                        <!-- <select id="joining_date" class="form-control" ngModel name="joining_date">
+                            <option selected>Choose...</option>
+                            <option>01012020</option>
+                            <option></option>
+                            <option></option>
+                        </select> -->
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="last_working_date">Exit Date</label>
+                        <input type="date" id="last_working_date" class="form-control" ngModel name="last_working_date">
+                        <!-- <select id="last_working_date" class="form-control" ngModel name="last_working_date">
+                            <option selected>Choose...</option>
+                            <option>01012022</option>
+                            <option></option>
+                            <option></option>
+                        </select> -->
+                    </div>
+                </div>
+                <div class="form-row col-md-4">
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="photo_image">Upload Photo</label>
+                        <input type="file" class="custom-file-input" id="photo_image" ngModel name="photo_image"
+                        
+                        />
+                    </div>
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="documents">Upload Documents</label>
+                        <input type="file" class="custom-file-input" id="documents" ngModel name="documents" />
+                    </div>
+                </div>
+                <button class="btn btn-primary" [disabled]="!(f.valid)">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

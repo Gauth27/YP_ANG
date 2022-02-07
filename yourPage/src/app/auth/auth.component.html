@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" ngModel required name="username"
+                  #username="ngModel">
+                  <span *ngIf="!username.valid && username.touched">Enter Username</span>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" ngModel required name="password"
+                  #password="ngModel">
+                  <span *ngIf="!password.valid && password.touched">Enter Password</span>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!(loginForm.valid)">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="" (click)="onClose()">
+    <ul *ngFor="let item of employeeSelected | keyvalue">
+        <li>{{item.key}} | {{item.value}}</li>
+    </ul> 
+    <div class="alert-box-actions">
+        <button class="btn btn-primary" (click)="onClose()">Close</button>
+    </div>
+</div>
