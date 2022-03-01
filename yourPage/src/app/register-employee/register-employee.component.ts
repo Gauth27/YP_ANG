@@ -25,7 +25,8 @@ export class RegisterEmployeeComponent implements OnInit {
     private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.authToken = 'Bearer' + this.tokenService.retrieveToken()
+    this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
+    console.log(this.authToken)
   }
 
   onRegister(form: NgForm) {
@@ -34,7 +35,7 @@ export class RegisterEmployeeComponent implements OnInit {
     const photo = document.getElementById("photo_image")["files"][0]
     this.getBase64(photo).then(data => console.log(data));
     const employeeDetails = JSON.stringify(form.value)
-    this.http.post('http://127.0.0.1:8000/api/employee-registration',
+    this.http.post('http://127.0.0.1:8000/employee-registration',
       employeeDetails,
       { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.authToken }) }
     ).subscribe(
@@ -42,9 +43,6 @@ export class RegisterEmployeeComponent implements OnInit {
         console.log(employeeDetails)
         this.notify.showSuccess('New Employee was registered', 'Success!!')
       })
-    // form.reset()
-    // var file = document.querySelector('#files > input[type="file"]').files[0];
-
   }
 
   onHandleError() {

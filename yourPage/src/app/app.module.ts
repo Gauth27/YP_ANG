@@ -20,6 +20,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlertComponent } from './alert/alert.component';
+import { LeaveManagementComponent } from './leave-management/leave-management.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+FullCalendarModule.registerPlugins([ 
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -33,6 +43,7 @@ import { AlertComponent } from './alert/alert.component';
     EmployeeDetailsComponent,
     DashboardComponent,
     AlertComponent,
+    LeaveManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,8 @@ import { AlertComponent } from './alert/alert.component';
     ToastrModule.forRoot(),
     NgxPaginationModule,
     InfiniteScrollModule,
-    ScrollingModule
+    ScrollingModule,
+    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

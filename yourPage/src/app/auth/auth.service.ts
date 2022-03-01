@@ -9,7 +9,9 @@ import { TokenService } from "./token.service";
 })
 export class AuthService {
     isAuthenticated = false
+    isAdmin = false
     token: string = ''
+    employeeID: string
 
     constructor(
         private http: HttpClient,
@@ -17,13 +19,17 @@ export class AuthService {
         private tokenService: TokenService) { }
 
     onLogin(loginCredentials) {
-        this.http.post('http://127.0.0.1:8000/api/login-page',
+        this.http.post('http://127.0.0.1:8000/login-page',
             loginCredentials,
             { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
         ).subscribe(
             response => {
-                this.tokenService.setToken(response.toString())
-                this.isAuthenticated = true
+                this.tokenService.setToken(response['token'].toString(), response['is_admin'], response['employeeID'])
+                // localStorage.setItem("TOKEN", response['token'].toString())
+                // localStorage.setItem("ADMIN", response['is_admin'])
+                // this.isAuthenticated = true
+                this.isAdmin = response['is_admin']
+                this.employeeID = response['employeeID']
                 this.navRoute.navigate(['/home'])
             },
             error => {

@@ -5,6 +5,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { EmployeeDetailsComponent } from "./employee-details/employee-details.component";
 import { EmployeeListComponent } from "./employee-list/employee-list.component";
 import { HomeComponent } from "./home/home.component";
+import { LeaveManagementComponent } from "./leave-management/leave-management.component";
 import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
 
 const appRoutes: Routes = [
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
             { path: 'registerEmployee', component: RegisterEmployeeComponent },
             { path: 'employeeList', component: EmployeeListComponent },
             // { path: 'employee-details/:id', component: EmployeeDetailsComponent },
+            { path: 'leave-management', component: LeaveManagementComponent },
         ]
     },
 ]

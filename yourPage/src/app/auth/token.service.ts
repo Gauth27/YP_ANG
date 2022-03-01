@@ -5,8 +5,10 @@ import { Injectable } from "@angular/core"
 })
 export class TokenService {
 
-    setToken(token: string) {
+    setToken(token: string, is_admin:string, id:string) {
         localStorage.setItem("TOKEN", token)
+        localStorage.setItem("ADMIN", is_admin)
+        localStorage.setItem("empID", id)
     }
 
     retrieveToken() {
@@ -15,5 +17,6 @@ export class TokenService {
 
     deleteTOken() {
         localStorage.removeItem("TOKEN")
+        localStorage.removeItem("ADMIN")
     }
 }

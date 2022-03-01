@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TokenService } from '../auth/token.service';
+import { EmployeeService } from '../employee-details/employee.services';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,9 +14,12 @@ export class EmployeeListComponent implements OnInit {
   employeesList = [];
   pageNum = 1;
   displayDetails = false;
-  @Output() employeeSelected = new EventEmitter<any>();
-  constructor(private http: HttpClient,
-    private tokenService: TokenService) {
+  employeeSelected = new EventEmitter<any>();
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService,
+    private empService: EmployeeService
+  ) {
 
   }
 
@@ -27,7 +31,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   fetchData() {
-    let url = 'http://127.0.0.1:8000/api/list?page=' + this.pageNum
+    let url = 'http://127.0.0.1:8000/list?page=' + this.pageNum
     this.http.get<{}>(url,
       { headers: new HttpHeaders({ 'Authorization': this.authToken }) }
     ).subscribe(
@@ -54,9 +58,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onClickDetails(id: number) {
-    this.http.get(`http://127.0.0.1:8000/api/details/${id}`,
-      { headers: new HttpHeaders({ 'Authorization': this.authToken }) }
-    ).subscribe(
+    this.empService.fetchEmployeeByID(id).subscribe(
       (data) => {
         console.log(data)
         this.employee = data
