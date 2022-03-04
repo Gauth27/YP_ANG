@@ -1,0 +1,44 @@
+.float-right {
+    float: right;
+}
+
+.logout {
+    margin-bottom: 0;
+    text-decoration: none;
+    background-image: url("/assets/logout.png");
+    background-size: 100%;
+    width: 40px;
+    height: 32px;
+}
+
+.card {
+    border: 0;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border: 1px solid transparent;
+}
+
+.card-header {
+    padding: 15px;
+}
+
+.logo {
+    font-size: 28px;
+    float: left;
+    text-decoration: none;
+    background-image: url(/assets/logo.png);
+    width: 180px;
+    background-size: 22%;
+    padding-left: 30px;
+    background-position-y: -3px;
+    height: 28px;
+    background-repeat: no-repeat;
+    line-height: 30px;
+    color: #0a58ca;
+}
+
+.logo {
+    color: #0a58ca;
+}

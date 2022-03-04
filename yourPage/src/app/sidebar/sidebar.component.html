@@ -1,9 +1,13 @@
 <div class="sidebar">
-  <a routerLinkActive="active" [routerLink]="['/home']" class="sidebar a">HOME</a>
-  <a routerLinkActive="active" [routerLink]="['/leave-management']" class="sidebar a">Leave
-    Management</a>
-  <a *ngIf="is_admin" routerLinkActive="active" [routerLink]="['/registerEmployee']" class="sidebar a">Register New
-    Employee</a>
-  <a *ngIf="is_admin" routerLinkActive="active" [routerLink]="['/employeeList']" class="sidebar a">View All
-    Employees</a>
+    <a routerLinkActive="active" class="sideMenu" [routerLink]="['/home']">
+        <div class="home"></div>Home</a>
+    <a routerLinkActive="active" class="sideMenu" [routerLink]="['/leave-management']">
+        <div class="leave"></div>Leave Management
+    </a>
+    <a *ngIf="is_admin" class="sideMenu" routerLinkActive="active" [routerLink]="['/registerEmployee']">
+        <div class="newEmp"></div>Register New Employee
+    </a>
+    <a *ngIf="is_admin" class="sideMenu" routerLinkActive="active" [routerLink]="['/employeeList']">
+        <div class="allEmp"></div>View All Employees
+    </a>
 </div>

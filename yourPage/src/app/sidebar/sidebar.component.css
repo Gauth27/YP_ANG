@@ -1,30 +1,38 @@
-/* The sidebar menu */
 .sidebar {
-    height: 100%; /* 100% Full-height */
-    width: 100%; /* 0 width - change this with JavaScript */
-    /* position: fixed; */
-    z-index: 1; /* Stay on top */
+    height: 100%;
+    width: 100%;
+    z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 10px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-  }
-  
-  /* The sidebar links */
-  .sidebar a {
+    background-color: #fff;
+    overflow-x: hidden;
+    padding: 10px 0 0 10px;
+    transition: 0.5s;
+    border-right: 1px solid #00000020;
+}
+
+.sidebar a {
     padding: 8px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 17px;
     display: block;
     transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-  
-  
+    color: #000;
+    line-height: 23px;
+}
+
+.sidebar a:hover {
+    color: #0a58ca;
+}
+
+.sideMenu div {
+    width: 22px;
+    background-size: 100%;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+}
+
+.sideMenu .home {
+    background: url("/assets/home.png") no-repeat 0/100%;
+}
