@@ -40,7 +40,7 @@ export class RegisterEmployeeComponent implements OnInit {
       { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.authToken }) }
     ).subscribe(
       () => {
-        console.log(employeeDetails)
+        // console.log(employeeDetails)
         this.notify.showSuccess('New Employee was registered', 'Success!!')
       })
   }

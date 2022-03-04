@@ -1,7 +1,27 @@
-.container {
-   width: 50%;
+.leave-button {
+    padding: 20px;
 }
 
-.container:hover {
+.container {
+   width: 100%;
+   overflow: hidden;
+}
+
+.calendar {
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+
+.calendar:hover {
     cursor: pointer;
+}
+
+.leave-table {
+    width: 50%;
+    margin-top: 20px;
+}
+
+.leave-form {
+    padding: 20px;
 }

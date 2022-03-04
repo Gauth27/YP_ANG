@@ -1,3 +1,91 @@
 <div class="container">
-    <full-calendar [options]="calendarOptions"></full-calendar>
+    <div class="calendar">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    <table class="leave-table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">LEAVE TYPE</th>
+                <th scope="col">BALANCE</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="leave_balance">
+            <tr>
+                <th scope="row">1</th>
+                <td>PERSONAL</td>
+                <td>{{leave_balance['personal']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>CASUAL</td>
+                <td>{{leave_balance['casual']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>EARNED</td>
+                <td>{{leave_balance['earned']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>SICK</td>
+                <td>{{leave_balance['sick']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>BEREAVEMENT</td>
+                <td>{{leave_balance['bereavement']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>PATERNITY</td>
+                <td>{{leave_balance['paternity']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>MATERNITY</td>
+                <td>{{leave_balance['maternity']}}</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>OPTIONAL</td>
+                <td>{{leave_balance['optional']}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="leave-button">
+        <button type="button" class="btn btn-primary" (click)="leaveApplication()">Apply Leave</button>
+    </div>
+    <div class="leave-form" *ngIf="display_LeaveForm">
+        <form #f="ngForm" (ngSubmit)="onApplyLeave(f)">
+            <div class="form-row col-xs-12">
+                <div class="form-group col-md-4">
+                    <label for="from_Date">Select From Date</label>
+                    <input type="date" id="from_Date" class="form-control" ngModel name="from_Date" required
+                        #from_Date="ngModel">
+                    <span *ngIf="!from_Date.valid && from_Date.touched"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="to_Date">Select To Date</label>
+                    <input type="date" id="to_Date" class="form-control" ngModel name="to_Date" required
+                        #to_Date="ngModel">
+                    <span *ngIf="!to_Date.valid && to_Date.touched"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="leave_type">Leave Type</label>
+                    <select id="leave_type" class="form-control" ngModel name="leave_type">
+                        <option selected>Choose...</option>
+                        <option value="1">Personal</option>
+                        <option value="2">Casual</option>
+                        <option value="3">Earned</option>
+                        <option value="4">Bereavement</option>
+                        <option value="5">Maternity</option>
+                        <option value="6">Paternity</option>
+                        <option value="7">Optional</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-primary" [disabled]="!(f.valid)">SUBMIT</button>
+        </form>
+    </div>
 </div>
