@@ -11,7 +11,49 @@ body {
 }
 
 .unauthorized {
-    font-size: 18px;
+    font-size: 19px;
     margin: 0 auto;
     width: 30%;
+    margin-top: 20px;
+}
+
+.logo {
+    font-size: 28px;
+    float: left;
+    text-decoration: none;
+    background-image: url(/assets/logo.png);
+    width: 180px;
+    background-size: 20%;
+    padding-left: 25px;
+    background-position-y: -3px;
+    height: 28px;
+    background-repeat: no-repeat;
+    line-height: 30px;
+    color: #0a58ca;
+    font-variant: all-petite-caps;
+}
+
+.logo.signIn {
+    cursor: context-menu;
+    padding-left: 40px;
+    margin: 15px 0 0 5px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.form-item-required:before {
+    display: inline-block;
+    margin-right: 4px;
+    content: "*";
+    font-family: SimSun;
+    font-size: 12px;
+    color: #f04134;
+}
+
+.validation-error {
+    color: red;
+    font-size: 13px;
+    padding-left: 5px;
 }

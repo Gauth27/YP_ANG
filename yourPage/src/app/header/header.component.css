@@ -23,22 +23,3 @@
 .card-header {
     padding: 15px;
 }
-
-.logo {
-    font-size: 28px;
-    float: left;
-    text-decoration: none;
-    background-image: url(/assets/logo.png);
-    width: 180px;
-    background-size: 22%;
-    padding-left: 30px;
-    background-position-y: -3px;
-    height: 28px;
-    background-repeat: no-repeat;
-    line-height: 30px;
-    color: #0a58ca;
-}
-
-.logo {
-    color: #0a58ca;
-}

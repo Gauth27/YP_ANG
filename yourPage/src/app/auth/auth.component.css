@@ -1,11 +1,9 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
 }
 
-.container {
+.signin-holder {
     width: 320px;
     height: 350px;
     background: #fff;
@@ -21,18 +19,8 @@
     padding: 1rem;
 }
 
-.container h2 {
-    color: #0A66C3;
-    font-size: 1.6rem;
-}
-
-.container h2 i {
-    font-size: 1.8rem;
-    padding-left: .1rem;
-}
-
-.text p {
-    font-size: .8rem;
+.text span {
+    font-size: 19px;
     padding-top: 0.3rem;
 }
 
@@ -40,17 +28,18 @@
     position: relative;
     width: 100%;
     height: 50px;
-    margin-bottom: 0.7em;
+    margin-bottom: 1.5em;
 }
 
 .your-input input {
     width: 100%;
     height: 50px;
+    font-size: 17px;
     padding-top: 1.1rem;
     padding-left: 9px;
     outline: none;
-    border: 1px solid #8c8c8c;
-    border-radius: 3px;
+    border: none;
+    border-bottom: 1px solid #8c8c8c;
     transition: .2s;
 }
 
@@ -58,7 +47,7 @@
     position: absolute;
     top: 30%;
     left: 10px;
-    font-size: 1.1rem;
+    font-size: 15px;
     color: #8c8c8c;
     transition: .2s;
 }
@@ -67,11 +56,11 @@
 .input input:valid~label {
     top: 10%;
     font-size: .8rem;
-    color: #000;
+    color: #8c8c8c;
 }
 
 .input input:focus {
-    border-width: 2px;
+    border-width: 1.5px;
     border-color: #0A66C3;
 }
 
@@ -86,14 +75,10 @@
     border-radius: 12px;
 }
 
-.forgot-password-link:hover {
-    text-decoration: underline;
-}
-
 button {
     height: 50px;
     width: 100%;
-    background: #0A66C3;
+    background: #0a58ca;
     outline: none;
     border: none;
     border-radius: 30px;
@@ -104,22 +89,10 @@ button {
     cursor: pointer;
 }
 
-.join-link {
-    text-decoration: none;
-    font-weight: bolder;
-    color: #0A66C3;
+button:hover {
+    background: #0A66C3;
 }
 
-.join-now {
-    text-decoration: none;
-    font-weight: bolder;
-    color: #0A66C3;
-    border-radius: 12px;
-    transition: .3s;
-    font-weight: bolder;
-    padding: .2rem;
-}
-
-.join-now:hover {
-    background: rgba(10, 102, 195, 0.3);
+.signIn-validate {
+    margin-bottom: 10px;
 }

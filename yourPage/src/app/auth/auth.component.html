@@ -1,23 +1,26 @@
 <div class="container">
-    <div class="text">
-        <h1>Sign in</h1>
-    </div>
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-        <div class="your-input">
-            <div class="input">
-                <input type="text" id="username" ngModel required name="username" #username="ngModel">
-                <label for="username">Username</label>
-                <span *ngIf="!username.valid && username.touched">Enter Username</span>
-            </div>
-            <div class="input">
-                <input type="password" id="password" ngModel required name="password" #password="ngModel">
-                <label for="password">Password</label>
-                <span *ngIf="!password.valid && password.touched">Enter Password</span>
-            </div>
-            <a href="#" class="forgot-password-link">
-        Forgot Password?
-      </a>
+    <div class="logo signIn">Yourpage</div>
+    <div class="signin-holder">
+        <div class="text">
+            <span>Sign in</span>
         </div>
-        <button type="submit" [disabled]="!(loginForm.valid)">Sign in</button>
-    </form>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="your-input">
+                <div class="input">
+                    <input type="text" id="username" ngModel required name="username" #username="ngModel">
+                    <label for="username">Username</label>
+                    <span class="validation-error signIn-validate" *ngIf="!username.valid && username.touched">Please input the Username</span>
+                </div>
+                <div class="input">
+                    <input type="password" id="password" ngModel required name="password" #password="ngModel">
+                    <label for="password">Password</label>
+                    <span class="validation-error signIn-validate" *ngIf="!password.valid && password.touched">Password cannot be blank</span>
+                </div>
+                <a href="#" class="forgot-password-link">
+                    Forgot Password?
+                </a>
+            </div>
+            <button type="submit" [disabled]="!(loginForm.valid)">Sign in</button>
+        </form>
+    </div>
 </div>

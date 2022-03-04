@@ -4,7 +4,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: #efefef;
     overflow-x: hidden;
     padding: 10px 0 0 10px;
     transition: 0.5s;
@@ -26,8 +26,7 @@
 }
 
 .sideMenu div {
-    width: 22px;
-    background-size: 100%;
+    width: 20px;
     height: 20px;
     float: left;
     margin-right: 5px;
@@ -35,4 +34,18 @@
 
 .sideMenu .home {
     background: url("/assets/home.png") no-repeat 0/100%;
+}
+
+.sideMenu .leave {
+    background: url("/assets/leave.png") no-repeat 0/100%;
+    width: 22px;
+}
+
+.sideMenu .newEmp {
+    background: url("/assets/regEmp.png") no-repeat 0/100%;
+    height: 22px;
+}
+
+.sideMenu .allEmp {
+    background: url("/assets/allEmp.png") no-repeat 0/100%;
 }
