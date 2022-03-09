@@ -27,6 +27,7 @@ export class RegisterEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
     console.log(this.authToken)
+    this.menuSelector()
   }
 
   onRegister(form: NgForm) {
@@ -60,5 +61,9 @@ export class RegisterEmployeeComponent implements OnInit {
       reader.onload = () => resolve(reader.result);
       reader.onerror = error => reject(error);
     });
+  }
+
+  menuSelector() {
+    // $('.sidebar-list-item a').removeClass('sidebarMenu-selected');
   }
 }

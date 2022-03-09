@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { hideLoading, showLoading } from '../app.component';
 import { AuthService } from '../auth/auth.service';
 import { EmployeeService } from '../employee-details/employee.services';
 
@@ -11,25 +12,35 @@ export class HomeComponent implements OnInit {
   employeeName: string
   employeeSelected: {}
   displayDetails = false
+
   constructor(
     private authService: AuthService,
     private empService: EmployeeService
   ) { }
 
   ngOnInit(): void {
-    console.log(this.authService.employeeID)
+    this.fetchEmployee();
+  }
+
+
+  private fetchEmployee() {
+    showLoading();
+    console.log(this.authService.employeeID);
     // const id = + this.authService.employeeID
-    const id = + localStorage.getItem("empID")
+    const id = +localStorage.getItem("empID");
     if (id) {
       this.empService.fetchEmployeeByID(id).subscribe(
         (data) => {
-          console.log(data)
-          this.employeeSelected = data
-          this.employeeName = data['name']
-          this.displayDetails = true
+          console.log(data);
+          this.employeeSelected = data;
+          this.employeeName = data['name'];
+          this.displayDetails = true;
+          hideLoading();
         }
-      )
+      );
+    }
+    else {
+      hideLoading();
     }
   }
-
 }

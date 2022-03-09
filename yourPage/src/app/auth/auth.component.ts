@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { showLoading } from '../app.component';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    showLoading();
     const loginCredentials = JSON.stringify(form.value)
     this.authService.onLogin(loginCredentials)
     // form.reset()

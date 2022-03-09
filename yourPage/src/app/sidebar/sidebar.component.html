@@ -1,13 +1,20 @@
 <div class="sidebar">
-    <a routerLinkActive="active" class="sideMenu" [routerLink]="['/home']">
-        <div class="home"></div>Home</a>
-    <a routerLinkActive="active" class="sideMenu" [routerLink]="['/leave-management']">
-        <div class="leave"></div>Leave Management
-    </a>
-    <a *ngIf="is_admin" class="sideMenu" routerLinkActive="active" [routerLink]="['/registerEmployee']">
-        <div class="newEmp"></div>Register New Employee
-    </a>
-    <a *ngIf="is_admin" class="sideMenu" routerLinkActive="active" [routerLink]="['/employeeList']">
-        <div class="allEmp"></div>View All Employees
-    </a>
+    <ul class="sidebar-list">
+        <li class="sidebar-list-item" title="Home">
+            <a [routerLink]="['/home']" routerLinkActive="sidebarMenu-selected"><img class="sideMenu-img" src="/assets/home.png" alt="Home"><span class="sideMenu-label">Home</span></a>
+        </li>
+        <li class="sidebar-list-item" title="Leave Management">
+            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg" class="sideMenu-img" alt="Leaves"><span class="sideMenu-label">Leave Management</span></a>
+        </li>
+        <li *ngIf="is_admin" class="sidebar-list-item" title="Register New Employee">
+            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/registerEmployee']">
+                <img src="/assets/regEmp.png" class="sideMenu-img" alt="Register Employee"><span class="sideMenu-label">Register New Employee</span>
+            </a>
+        </li>
+        <li *ngIf="is_admin" class="sidebar-list-item" title="View All Employees">
+            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/employeeList']">
+                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span class="sideMenu-label">View All Employees</span>
+            </a>
+        </li>
+    </ul>
 </div>

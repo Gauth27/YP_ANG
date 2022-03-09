@@ -3,16 +3,12 @@
         <app-employee-details [employeeSelected]="employee" *ngIf="displayDetails" (close)="onClose()">
         </app-employee-details>
     </div>
-    <p>LIST OF ALL EMPLOYEES</p>
+    <p>List of Employees</p>
     <div class="employeeData col-xs-12" id="employeeData">
         <ul class="list-group" *ngFor="let emp of employeesList; let i = index">
             <!-- <li class="list-group-item disabled" aria-disabled="true">A disabled item</li> -->
             <!-- <li class="list-group-item"><a [routerLink]="['/employee-details', emp.id]">{{emp.name}}</a></li> -->
-            <li 
-                class="list-group-item" 
-                (click)="onClickDetails(emp.id)"
-                style="cursor:pointer;"
-                >{{emp.name}}
+            <li class="list-group-item" (click)="onClickDetails(emp.id)" style="cursor:pointer;">{{emp.name}}
             </li>
             <!-- <app-employee-details [employeeSelected]="emp" *ngIf="displayDetails"></app-employee-details> -->
         </ul>

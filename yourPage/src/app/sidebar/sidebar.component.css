@@ -2,50 +2,50 @@
     height: 100%;
     width: 100%;
     z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #efefef;
+    background-color: #e8f2ff;
     overflow-x: hidden;
-    padding: 10px 0 0 10px;
+    padding: 10px;
     transition: 0.5s;
-    border-right: 1px solid #00000020;
+    border-right: 1px solid #a2caff;
+}
+
+.sidebar-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.sidebar-list-item {
+    margin: 20px 10px;
 }
 
 .sidebar a {
-    padding: 8px;
     text-decoration: none;
-    font-size: 17px;
-    display: block;
     transition: 0.3s;
     color: #000;
-    line-height: 23px;
 }
 
 .sidebar a:hover {
     color: #0a58ca;
 }
 
-.sideMenu div {
+.sideMenu-img {
     width: 20px;
     height: 20px;
     float: left;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
-.sideMenu .home {
-    background: url("/assets/home.png") no-repeat 0/100%;
+.sideMenu-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
+    display: inline-block;
+    line-height: 22px;
+    font-size: 17px;
 }
 
-.sideMenu .leave {
-    background: url("/assets/leave.png") no-repeat 0/100%;
-    width: 22px;
-}
-
-.sideMenu .newEmp {
-    background: url("/assets/regEmp.png") no-repeat 0/100%;
-    height: 23px;
-}
-
-.sideMenu .allEmp {
-    background: url("/assets/allEmp.png") no-repeat 0/100%;
+.sidebarMenu-selected {
+    color: #0a58ca !important;
 }

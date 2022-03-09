@@ -8,11 +8,9 @@ import { TokenService } from "../auth/token.service";
 })
 export class EmployeeService {
     authToken: string
-    constructor(
-        private http: HttpClient,
-        private tokenService: TokenService,
-        private navRoute: Router,
-    ) { }
+    
+    constructor(private http: HttpClient, private tokenService: TokenService, private navRoute: Router, ) { }
+    
     fetchEmployeeByID(id: number) {
         this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
         return this.http.get(`http://127.0.0.1:8000/details/${id}`,

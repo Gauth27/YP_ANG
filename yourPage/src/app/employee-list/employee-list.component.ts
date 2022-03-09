@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { hideLoading, showLoading } from '../app.component';
 import { TokenService } from '../auth/token.service';
 import { EmployeeService } from '../employee-details/employee.services';
 
@@ -15,6 +16,7 @@ export class EmployeeListComponent implements OnInit {
   pageNum = 1;
   displayDetails = false;
   employeeSelected = new EventEmitter<any>();
+  
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
@@ -24,6 +26,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    showLoading();
     this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
     this.fetchData()
     this.checkScrollPos()
@@ -40,6 +43,7 @@ export class EmployeeListComponent implements OnInit {
         data['results'].forEach(element => {
           this.employeesList.push(element)
         });
+        hideLoading();
       }
     )
   }
@@ -51,6 +55,7 @@ export class EmployeeListComponent implements OnInit {
       var b = elementData.scrollHeight - elementData.clientHeight;
       let scrollPosition = Math.round((a / b) * 100)
       if (scrollPosition === 100) {
+        showLoading();
         this.pageNum++;
         this.fetchData()
       }
@@ -58,6 +63,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onClickDetails(id: number) {
+    showLoading();
     this.empService.fetchEmployeeByID(id).subscribe(
       (data) => {
         console.log(data)
@@ -65,6 +71,7 @@ export class EmployeeListComponent implements OnInit {
         this.displayDetails = true;
         console.log(this.employee)
         this.employeeSelected.emit(this.employee)
+        hideLoading();
       })
   }
 
