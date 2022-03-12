@@ -14,6 +14,7 @@ export class LeaveManagementComponent implements OnInit {
 
   leave_balance: {}
   display_LeaveForm = false
+  error: any = { isError: false, errorMessage: '' }
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -45,6 +46,26 @@ export class LeaveManagementComponent implements OnInit {
     form.value.leave_type = parseInt(form.value.leave_type)
     const leaveData = JSON.stringify(form.value)
     console.log('LEAVE DATA: ', leaveData)
-    this.leaveService.leave_application(leaveData)
+    this.compareTwoDates(form)
+    if (this.error.isError) {
+      console.error(this.error.errorMessage)
+    }
+    else {
+      this.leaveService.leave_application(leaveData)
+    }
+  }
+
+  
+  compareTwoDates(form) {
+    this.error.isError = false
+    if (new Date(form.controls['to_Date'].value) < new Date(form.controls['from_Date'].value)) {
+      this.error = {
+        isError: true,
+        errorMessage: "End Date can't before start date"
+      };
+    }
   }
 }
+
+
+
