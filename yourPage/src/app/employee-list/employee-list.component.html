@@ -1,16 +1,33 @@
 <div class="row">
-    <div class="pop-up">
-        <app-employee-details [employeeSelected]="employee" *ngIf="displayDetails" (close)="onClose()">
-        </app-employee-details>
-    </div>
-    <p>List of Employees</p>
+    <span class="form-heading">List of Employees</span>
     <div class="employeeData col-xs-12" id="employeeData">
-        <ul class="list-group" *ngFor="let emp of employeesList; let i = index">
-            <!-- <li class="list-group-item disabled" aria-disabled="true">A disabled item</li> -->
-            <!-- <li class="list-group-item"><a [routerLink]="['/employee-details', emp.id]">{{emp.name}}</a></li> -->
-            <li class="list-group-item" (click)="onClickDetails(emp.id)" style="cursor:pointer;">{{emp.name}}
+        <table class="w-100">
+            <thead>
+                <tr>
+                    <th class="px-2 py-2 empId">Employee ID</th>
+                    <th class="px-2 py-2 empName">Name</th>
+                    <th class="px-2 py-2 empEmail">Email</th>
+                    <th class="px-2 py-2 empDept">Department</th>
+                    <th class="px-2 py-2 empRpt">Reporting</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="list-emp-row" (click)="onClickDetails(emp.id)" *ngFor="let emp of employeesList; let i = index">
+                    <td class="px-2 py-2 empId">{{emp.id}}</td>
+                    <td class="px-2 py-2 empName">{{emp.name}}</td>
+                    <td class="px-2 py-2 empEmail">{{emp.email}}</td>
+                    <td class="px-2 py-2 empDept">{{emp.department}}</td>
+                    <td class="px-2 py-2 empRpt">{{emp.reporting}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <ul class="list-group">
+            <li class="list-group-item"  style="cursor:pointer;">{{emp.name}}
             </li>
-            <!-- <app-employee-details [employeeSelected]="emp" *ngIf="displayDetails"></app-employee-details> -->
-        </ul>
+        </ul> -->
+    </div>
+    <div class="pop-up" *ngIf="displayDetails">
+        <app-employee-details [employeeSelected]="employee" (close)="onClose()">
+        </app-employee-details>
     </div>
 </div>

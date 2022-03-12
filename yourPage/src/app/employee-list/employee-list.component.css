@@ -1,11 +1,52 @@
-.employeeData {
-    height: 250px;
-    overflow-y: auto;
+.employeeData {}
+
+.employeeData th,
+.employeeData td {
+    border: 1px solid #afc4e3;
+}
+
+.employeeData thead tr {
+    background-color: #d5e3f5;
+}
+
+.list-emp-row:hover {
+    background-color: #edf5ff;
 }
 
 .pop-up {
     position: absolute;
-    background-color: beige;
-    width: 300px;
+    background-color: #e8f2ff;
+    width: 80%;
+    height: 70%;
     z-index: 2;
+    margin: 5% auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.list-emp-row {
+    cursor: pointer;
+}
+
+.empId {
+    width: 15%;
+}
+
+.empName {
+    width: 30%;
+}
+
+.empEmail {
+    width: 25%;
+}
+
+.empDept {
+    width: 15%;
+}
+
+.empRpt {
+    width: 15%;
 }

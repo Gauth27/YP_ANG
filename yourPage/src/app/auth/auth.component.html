@@ -7,7 +7,7 @@
         <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
             <div class="your-input">
                 <div class="input">
-                    <input type="text" id="username" ngModel required name="username" #username="ngModel">
+                    <input type="text" autofocus id="username" ngModel required name="username" #username="ngModel">
                     <label for="username">Username</label>
                     <span class="validation-error signIn-validate" *ngIf="!username.valid && username.touched">Please input the Username</span>
                 </div>

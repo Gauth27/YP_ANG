@@ -16,7 +16,7 @@ export class EmployeeListComponent implements OnInit {
   pageNum = 1;
   displayDetails = false;
   employeeSelected = new EventEmitter<any>();
-  
+
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,

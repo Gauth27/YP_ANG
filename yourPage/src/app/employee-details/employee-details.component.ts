@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit, OnDestroy {
-  @Input() employeeSelected: {}
+  @Input() employeeSelected: any
   @Output() close = new EventEmitter<void>()
   private id: string
   private paramSub: Subscription

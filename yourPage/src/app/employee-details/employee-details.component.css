@@ -8,6 +8,11 @@
     z-index: 50;
 }
 
+.emp-details {
+    list-style-type: none;
+    padding: 0;
+}
+
 .alert-box {
     position: fixed;
     top: 30vh;
@@ -22,4 +27,3 @@
 .alert-box-actions {
     text-align: right;
 }
-
