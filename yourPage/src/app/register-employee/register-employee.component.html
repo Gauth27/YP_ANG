@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row">
-        <span class="form-heading">New Employee Registration</span>
+    <div class="form-heading">New Employee Registration</div>
+    <div class="scroll-holder">
         <div class="col-xs-12">
             <form #f="ngForm" (ngSubmit)="onRegister(f)">
                 <div class="form-group col-md-4 bringing-adjacent">
@@ -74,12 +74,14 @@
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="email" class="form-item-required">Offcial Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Offcial Email" ngModel name="email" maxlength="200" required #email="ngModel" />
-                    <span class="validation-error" *ngIf="!email.valid && email.touched">Offcial Email is required</span>
+                    <span class="validation-error" *ngIf="!email.valid && email.touched">Offcial Email is
+                        required</span>
                 </div>
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="personal_email" class="form-item-required">Personal Email</label>
                     <input type="email" class="form-control" id="personal_email" placeholder="Personal Email" ngModel name="personal_email" maxlength="200" required #personal_email="ngModel" />
-                    <span class="validation-error" *ngIf="!personal_email.valid && personal_email.touched">Personal Email is required</span>
+                    <span class="validation-error" *ngIf="!personal_email.valid && personal_email.touched">Personal
+                        Email is required</span>
                 </div>
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="bank_account">Bank Account Number</label>
@@ -178,8 +180,7 @@
                 </div>
                 <div class="form-check form-switch">
                     <label class="form-check-label" for="flexSwitchCheckChecked">Is ADMIN</label>
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
-                    ngModel name="flexSwitchCheckChecked">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked ngModel name="flexSwitchCheckChecked">
                 </div>
                 <button class="btn btn-primary" [disabled]="!(f.valid)">Register</button>
             </form>

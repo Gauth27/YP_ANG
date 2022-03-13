@@ -1,5 +1,12 @@
 <div class="container">
-    <div class="row"><span class="form-heading">Leave Management</span>
+    <div class="form-heading">Leave Management</div>
+    <div class="scroll-holder">
+        <div class="calendar">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+        <div class="calendar">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
         <div class="calendar">
             <full-calendar [options]="calendarOptions"></full-calendar>
         </div>
@@ -73,15 +80,15 @@
                     <div class="form-group col-md-2">
                         <label for="leave_type">Leave Type</label>
                         <select id="leave_type" class="form-control" ngModel name="leave_type">
-                        <option selected>Choose...</option>
-                        <option value="1">Personal</option>
-                        <option value="2">Casual</option>
-                        <option value="3">Earned</option>
-                        <option value="4">Bereavement</option>
-                        <option value="5">Maternity</option>
-                        <option value="6">Paternity</option>
-                        <option value="7">Optional</option>
-                    </select>
+                            <option selected>Choose...</option>
+                            <option value="1">Personal</option>
+                            <option value="2">Casual</option>
+                            <option value="3">Earned</option>
+                            <option value="4">Bereavement</option>
+                            <option value="5">Maternity</option>
+                            <option value="6">Paternity</option>
+                            <option value="7">Optional</option>
+                        </select>
                     </div>
                 </div>
                 <button class="btn btn-primary" [disabled]="!(f.valid)">SUBMIT</button>

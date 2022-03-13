@@ -1,33 +1,35 @@
-<div class="row">
-    <span class="form-heading">List of Employees</span>
-    <div class="employeeData col-xs-12" id="employeeData">
-        <table class="w-100">
-            <thead>
-                <tr>
-                    <th class="px-2 py-2 empId">Employee ID</th>
-                    <th class="px-2 py-2 empName">Name</th>
-                    <th class="px-2 py-2 empEmail">Email</th>
-                    <th class="px-2 py-2 empDept">Department</th>
-                    <th class="px-2 py-2 empRpt">Reporting</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="list-emp-row" (click)="onClickDetails(emp.id)" *ngFor="let emp of employeesList; let i = index">
-                    <td class="px-2 py-2 empId">{{emp.id}}</td>
-                    <td class="px-2 py-2 empName">{{emp.name}}</td>
-                    <td class="px-2 py-2 empEmail">{{emp.email}}</td>
-                    <td class="px-2 py-2 empDept">{{emp.department}}</td>
-                    <td class="px-2 py-2 empRpt">{{emp.reporting}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- <ul class="list-group">
+<div class="container">
+    <div class="form-heading">List of Employees</div>
+    <div class="scroll-holder">
+        <div class="employeeData col-xs-12" id="employeeData">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th class="px-2 py-2 empId">Employee ID</th>
+                        <th class="px-2 py-2 empName">Name</th>
+                        <th class="px-2 py-2 empEmail">Email</th>
+                        <th class="px-2 py-2 empDept">Department</th>
+                        <th class="px-2 py-2 empRpt">Reporting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="list-emp-row" (click)="onClickDetails(emp.id)" *ngFor="let emp of employeesList; let i = index">
+                        <td class="px-2 py-2 empId">{{emp.id}}</td>
+                        <td class="px-2 py-2 empName">{{emp.name}}</td>
+                        <td class="px-2 py-2 empEmail">{{emp.email}}</td>
+                        <td class="px-2 py-2 empDept">{{emp.department}}</td>
+                        <td class="px-2 py-2 empRpt">{{emp.reporting}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <ul class="list-group">
             <li class="list-group-item"  style="cursor:pointer;">{{emp.name}}
             </li>
         </ul> -->
-    </div>
-    <div class="pop-up" *ngIf="displayDetails">
-        <app-employee-details [employeeSelected]="employee" (close)="onClose()">
-        </app-employee-details>
+        </div>
+        <div class="pop-up" *ngIf="displayDetails">
+            <app-employee-details [employeeSelected]="employee" (close)="onClose()">
+            </app-employee-details>
+        </div>
     </div>
 </div>

@@ -2,10 +2,7 @@
     padding: 20px;
 }
 
-.container {
-   width: 100%;
-   overflow: hidden;
-}
+.container {}
 
 .calendar {
     width: 50%;

@@ -16,7 +16,14 @@
 }
 
 .sidebar-list-item {
-    margin: 20px 10px;
+    margin: 12px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 89%;
+    display: inline-block;
+    line-height: 21px;
+    font-size: 17px;
 }
 
 .sidebar a {
@@ -36,15 +43,7 @@
     margin-right: 8px;
 }
 
-.sideMenu-label {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 250px;
-    display: inline-block;
-    line-height: 22px;
-    font-size: 17px;
-}
+.sideMenu-label {}
 
 .sidebarMenu-selected {
     color: #0a58ca !important;
