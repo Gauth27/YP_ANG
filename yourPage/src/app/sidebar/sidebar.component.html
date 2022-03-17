@@ -6,14 +6,14 @@
         <li class="sidebar-list-item" title="Leave Management">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg" class="sideMenu-img" alt="Leaves"><span class="sideMenu-label">Leave Management</span></a>
         </li>
-        <li *ngIf="is_admin" class="sidebar-list-item" title="Register New Employee">
+        <!-- <li *ngIf="is_admin" class="sidebar-list-item" title="Register New Employee">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/registerEmployee']">
                 <img src="/assets/regEmp.png" class="sideMenu-img" alt="Register Employee"><span class="sideMenu-label">Register New Employee</span>
             </a>
-        </li>
+        </li> -->
         <li *ngIf="is_admin" class="sidebar-list-item" title="View All Employees">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/employeeList']">
-                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span class="sideMenu-label">View All Employees</span>
+                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span class="sideMenu-label">Employee Management</span>
             </a>
         </li>
     </ul>

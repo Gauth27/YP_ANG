@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ToastrService } from 'ngx-toastr';
@@ -12,6 +12,7 @@ import { TokenService } from '../auth/token.service';
 })
 
 export class RegisterEmployeeComponent implements OnInit {
+  @Output() close = new EventEmitter<void>()
   @ViewChild('f', { static: false }) registerForm: NgForm;
   authToken: string
   editMode = false;
@@ -66,4 +67,10 @@ export class RegisterEmployeeComponent implements OnInit {
   menuSelector() {
     // $('.sidebar-list-item a').removeClass('sidebarMenu-selected');
   }
+
+  onClose() {
+    this.close.emit()
+  }
 }
+
+

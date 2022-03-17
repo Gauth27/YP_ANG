@@ -15,6 +15,7 @@ export class EmployeeListComponent implements OnInit {
   employeesList = [];
   pageNum = 1;
   displayDetails = false;
+  displayForm = false;
   employeeSelected = new EventEmitter<any>();
 
   constructor(
@@ -78,4 +79,13 @@ export class EmployeeListComponent implements OnInit {
   onClose() {
     this.displayDetails = false;
   }
+
+  onAddEmployee() {
+    this.displayForm = true;
+  }
+
+  onCloseForm() {
+    this.displayForm = false;
+  }
+
 }
