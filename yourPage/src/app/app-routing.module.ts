@@ -9,16 +9,16 @@ import { LeaveManagementComponent } from "./leave-management/leave-management.co
 import { RegisterEmployeeComponent } from "./register-employee/register-employee.component";
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'auth', pathMatch: 'full' },
-    { path: 'auth', component: AuthComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login', component: AuthComponent },
     {
         path: '', component: DashboardComponent,
         children: [
             { path: 'home', component: HomeComponent },
             { path: 'registerEmployee', component: RegisterEmployeeComponent },
             { path: 'employeeList', component: EmployeeListComponent },
-            // { path: 'employee-details/:id', component: EmployeeDetailsComponent },
             { path: 'leave-management', component: LeaveManagementComponent },
+            // { path: 'employee-details/:id', component: EmployeeDetailsComponent },
         ]
     },
 ]

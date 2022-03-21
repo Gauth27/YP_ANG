@@ -1,8 +1,15 @@
 <div class="">
     <ul class="emp-details">
         <!-- <li *ngFor="let item of employeeSelected | keyvalue">{{item.key}} | {{item.value}}</li> -->
+        <li><label>Employee ID:</label><label>{{employeeSelected.id}}</label></li>
+        <li><label>Name:</label><label>{{employeeSelected.name}}</label></li>
+        <li><label>Offcial Email ID:</label><label>{{employeeSelected.email}}</label></li>
+        <li><label>Department:</label><label>{{employeeSelected.department}}</label></li>
+        <li><label>Reporting Manager:</label><label>{{employeeSelected.reporting}}</label></li>
         <li><label>Aadhar:</label><label>{{employeeSelected.aadhar}}</label></li>
         <li><label>Address:</label><label>{{employeeSelected.address}}</label></li>
     </ul>
-    <span class="btn btn-primary" (click)="onClose()">Close</span>
+    <div class="empPhoto"><img [src]="employeeImgURL" width="100%" height="100%" alt="Employee Image">
+        <span class="btn btn-primary" (click)="onClose()">Close</span>
+    </div>
 </div>

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { hideLoading, showLoading } from '../app.component';
 import { TokenService } from '../auth/token.service';
 import { EmployeeService } from '../employee-details/employee.services';
@@ -21,7 +22,8 @@ export class EmployeeListComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
-    private empService: EmployeeService
+    private empService: EmployeeService,
+    private router: Router
   ) {
 
   }
@@ -45,8 +47,11 @@ export class EmployeeListComponent implements OnInit {
           this.employeesList.push(element)
         });
         hideLoading();
-      }
-    )
+      },
+      error => {
+        hideLoading();
+        if (error.status == 401) { this.router.navigate(['login']); }
+      })
   }
 
   checkScrollPos() {
@@ -86,6 +91,14 @@ export class EmployeeListComponent implements OnInit {
 
   onCloseForm() {
     this.displayForm = false;
+  }
+
+  deleteEmployee() {
+    alert('Method to be implemented')
+  }
+
+  editEmployee() {
+    alert('Method to be implemented')
   }
 
 }

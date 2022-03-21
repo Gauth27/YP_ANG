@@ -61,13 +61,13 @@
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="phone_number" class="form-item-required">Phone Number</label>
-                    <input type="number" class="form-control" id="phone_number" placeholder="" ngModel name="phone_number" required #phone_number="ngModel" />
+                    <input type="number" class="form-control" id="phone_number" placeholder="Phone Number" ngModel name="phone_number" required #phone_number="ngModel" />
                     <span class="validation-error" *ngIf="!phone_number.valid && phone_number.touched">Phone Number
                         is required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
-                    <label for="emergency_contact_number" class="form-item-required">Emergency Contact number</label>
-                    <input type="number" class="form-control" id="emergency_contact_number" placeholder="" ngModel name="emergency_contact_number" required #emergency_contact_number="ngModel" />
+                    <label for="emergency_contact_number" class="form-item-required">Emergency Contact Number</label>
+                    <input type="number" class="form-control" id="emergency_contact_number" placeholder="Emergency Contact Number" ngModel name="emergency_contact_number" required #emergency_contact_number="ngModel" />
                     <span class="validation-error" *ngIf="!emergency_contact_number.valid && emergency_contact_number.touched">Emergency
                         Contact Number is required</span>
                 </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="bank_account">Bank Account Number</label>
-                    <input type="number" class="form-control" id="bank_account" placeholder="" ngModel name="bank_account" #bank_account="ngModel" />
+                    <input type="number" class="form-control" id="bank_account" placeholder="Bank Account Number" ngModel name="bank_account" #bank_account="ngModel" />
                 </div>
                 <div class="form-group col-md-5 bringing-adjacent">
                     <label for="address" class="form-item-required">Address</label>
@@ -117,12 +117,12 @@
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="city" class="form-item-required">City</label>
-                    <input type="text" id="city" class="form-control" ngModel name="city" required #city="ngModel" maxlength="200" />
+                    <input type="text" id="city" class="form-control" ngModel name="city" placeholder="City" required #city="ngModel" maxlength="200" />
                     <span class="validation-error" *ngIf="!city.valid && city.touched">City is required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
-                    <label for="pin_code">PIN Code</label>
-                    <input type="number" class="form-control" id="pin_code" ngModel name="pin_code" required maxlength="10" #pin_code="ngModel" />
+                    <label for="pin_code" class="form-item-required">PIN Code</label>
+                    <input type="number" class="form-control" id="pin_code" ngModel name="pin_code" placeholder="PIN Code" required maxlength="10" #pin_code="ngModel" />
                     <span class="validation-error" *ngIf="!pin_code.valid && pin_code.touched">PIN Code is
                         required</span>
                 </div>
@@ -162,11 +162,11 @@
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="joining_date">Date Of Joining</label>
-                    <input type="date" id="joining_date" class="form-control" ngModel name="joining_date">
+                    <input type="date" id="joining_date" class="form-control" placeholder="Date of Joining" ngModel name="joining_date">
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="last_working_date">Exit Date</label>
-                    <input type="date" id="last_working_date" class="form-control" ngModel name="last_working_date">
+                    <input type="date" id="last_working_date" placeholder="Exit Date" class="form-control" ngModel name="last_working_date">
                 </div>
                 <div class="form-row col-md-4 bringing-adjacent">
                     <div class="custom-file">

@@ -1,5 +1,3 @@
-.employeeData {}
-
 .employeeData th,
 .employeeData td {
     border: 1px solid #afc4e3;
@@ -9,8 +7,12 @@
     background-color: #d5e3f5;
 }
 
-.list-emp-row:hover {
-    background-color: #edf5ff;
+.add-employee {
+    background-image: url(/assets/addEmployee.svg);
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    background-position: 6px;
+    float: right;
 }
 
 .pop-up {
@@ -41,12 +43,8 @@
     padding: 20px;
 }
 
-.list-emp-row {
-    cursor: pointer;
-}
-
 .empId {
-    width: 15%;
+    width: 10%;
 }
 
 .empName {
@@ -54,7 +52,7 @@
 }
 
 .empEmail {
-    width: 25%;
+    width: 20%;
 }
 
 .empDept {
@@ -63,4 +61,41 @@
 
 .empRpt {
     width: 15%;
+}
+
+.empAction {
+    width: 10%;
+}
+
+.edit {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/edit.svg");
+    display: flex;
+    background-size: 100%;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+
+.delete {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/delete.svg");
+    display: flex;
+    background-size: 100%;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+
+.empDetails {
+    width: 20px;
+    height: 20px;
+    background-image: url("/assets/empDetails.svg");
+    display: flex;
+    background-size: 100%;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
 }

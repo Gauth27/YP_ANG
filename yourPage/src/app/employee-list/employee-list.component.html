@@ -1,7 +1,7 @@
 <div class="container">
     <div>
-        <span class="btn btn-primary" (click)="onAddEmployee()">
-            Add a new Employee
+        <span class="btn btn-primary add-employee" (click)="onAddEmployee()">
+            Add Employee
         </span>
         <div class="pop-up-EmployeeForm" *ngIf="displayForm">
             <app-register-employee (close)="onCloseForm()"></app-register-employee>
@@ -18,16 +18,21 @@
                         <th class="px-2 py-2 empEmail">Email</th>
                         <th class="px-2 py-2 empDept">Department</th>
                         <th class="px-2 py-2 empRpt">Reporting</th>
+                        <th class="px-2 py-2 empAction">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="list-emp-row" (click)="onClickDetails(emp.id)"
-                        *ngFor="let emp of employeesList; let i = index">
+                    <tr class="list-emp-row" *ngFor="let emp of employeesList; let i = index">
                         <td class="px-2 py-2 empId">{{emp.id}}</td>
                         <td class="px-2 py-2 empName">{{emp.name}}</td>
                         <td class="px-2 py-2 empEmail">{{emp.email}}</td>
                         <td class="px-2 py-2 empDept">{{emp.department}}</td>
                         <td class="px-2 py-2 empRpt">{{emp.reporting}}</td>
+                        <td class="px-2 py-2 empAction">
+                            <span class="edit" title="Edit" (click)="editEmployee()"></span>
+                            <span class="delete" title="Delete" (click)="deleteEmployee()"></span>
+                            <span class="empDetails" title="Details" (click)="onClickDetails(emp.id)"></span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
