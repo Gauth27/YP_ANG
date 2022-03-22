@@ -7,6 +7,11 @@
             <app-register-employee (close)="onCloseForm()"></app-register-employee>
         </div>
     </div>
+    <div class="form-group col-md-4 bringing-adjacent">
+        <input type="text" class="form-control" placeholder="Search EMP by Name" 
+        [(ngModel)]="employeeSearch" (keyup)="fetchEmployeesByName(employeeSearch)">
+
+    </div>
     <div class="form-heading">List of Employees</div>
     <div class="scroll-holder">
         <div class="employeeData col-xs-12" id="employeeData">

@@ -39,7 +39,15 @@ export class LeaveService {
 
     }
 
+    dateError() {
+        this.notify.showError("Check the Dates again!!\n End Date can't before start date", 'Error')
+    }
+
     showToasterSuccess() {
         this.toastr.success("Data shown successfully !!")
+    }
+
+    showToasterError() {
+        this.toastr.error("From Date should be before To Date!")
     }
 }

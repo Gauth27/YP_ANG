@@ -42,6 +42,7 @@ export class RegisterEmployeeComponent implements OnInit {
         result => {
           hideLoading();
           this.notify.showSuccess('New employee saved successfully.', 'Success')
+          this.onClose()
         },
         error => {
           hideLoading();

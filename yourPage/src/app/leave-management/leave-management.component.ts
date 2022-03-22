@@ -27,10 +27,14 @@ export class LeaveManagementComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.fetchLeaveBalance();
+  }
+
+  fetchLeaveBalance() {
     this.leaveService.display_Leave_Balance().subscribe(
       (data) => {
-        console.log(data)
-        this.leave_balance = data
+        console.log(data);
+        this.leave_balance = data;
       });
   }
 
@@ -48,14 +52,17 @@ export class LeaveManagementComponent implements OnInit {
     console.log('LEAVE DATA: ', leaveData)
     this.compareTwoDates(form)
     if (this.error.isError) {
+      this.leaveService.dateError()
       console.error(this.error.errorMessage)
     }
     else {
       this.leaveService.leave_application(leaveData)
+      // this.fetchLeaveBalance()
+      this.ngOnInit()
     }
   }
 
-  
+
   compareTwoDates(form) {
     this.error.isError = false
     if (new Date(form.controls['to_Date'].value) < new Date(form.controls['from_Date'].value)) {

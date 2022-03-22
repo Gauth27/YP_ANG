@@ -17,4 +17,10 @@ export class EmployeeService {
             { headers: new HttpHeaders({ 'Authorization': this.authToken }) }
         )
     }
+
+    fetchEmployeesByName(name: string) {
+        return this.http.get(`http://127.0.0.1:8000/employee-search?name=${name}`,
+            // { headers: new HttpHeaders({ 'name': name }) }
+        )
+    }
 }

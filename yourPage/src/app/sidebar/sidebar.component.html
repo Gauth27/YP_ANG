@@ -4,7 +4,8 @@
             <a [routerLink]="['/home']" routerLinkActive="sidebarMenu-selected"><img class="sideMenu-img" src="/assets/home.png" alt="Home"><span class="sideMenu-label">Employee Home</span></a>
         </li>
         <li class="sidebar-list-item" title="Leave Management">
-            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg" class="sideMenu-img" alt="Leaves"><span class="sideMenu-label">Leave Management</span></a>
+            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg"
+                    class="sideMenu-img" alt="Leaves"><span class="sideMenu-label">Leave Management</span></a>
         </li>
         <!-- <li *ngIf="is_admin" class="sidebar-list-item" title="Register New Employee">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/registerEmployee']">
@@ -13,7 +14,8 @@
         </li> -->
         <li *ngIf="is_admin" class="sidebar-list-item" title="View All Employees">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/employeeList']">
-                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span class="sideMenu-label">Employee Management</span>
+                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span
+                    class="sideMenu-label">Employee Management</span>
             </a>
         </li>
     </ul>

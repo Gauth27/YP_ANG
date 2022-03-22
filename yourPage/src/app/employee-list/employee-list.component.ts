@@ -18,6 +18,7 @@ export class EmployeeListComponent implements OnInit {
   displayDetails = false;
   displayForm = false;
   employeeSelected = new EventEmitter<any>();
+  employeeSearch:string
 
   constructor(
     private http: HttpClient,
@@ -52,6 +53,16 @@ export class EmployeeListComponent implements OnInit {
         hideLoading();
         if (error.status == 401) { this.router.navigate(['login']); }
       })
+  }
+
+  fetchEmployeesByName(name) {
+    console.log('Name', name)
+    this.empService.fetchEmployeesByName(name)
+    .subscribe(
+      (data)=> {
+        console.log(data)
+      }
+    )
   }
 
   checkScrollPos() {
