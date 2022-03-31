@@ -4,7 +4,7 @@
         <!-- <div class="calendar">
             <full-calendar [options]="calendarOptions"></full-calendar>
         </div> -->
-        <table class="leave-table">
+        <table class="leave-table" *ngIf="leave_balance;else unauthorized">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -12,7 +12,7 @@
                     <th scope="col">BALANCE</th>
                 </tr>
             </thead>
-            <tbody *ngIf="leave_balance">
+            <tbody>
                 <tr>
                     <th scope="row">1</th>
                     <td>PERSONAL</td>
@@ -55,19 +55,24 @@
                 </tr>
             </tbody>
         </table>
+        <ng-template #unauthorized>
+            <div class="unauthorized">
+                Sorry, you aren't allowed to access this page!
+            </div>
+        </ng-template>
         <div class="leave-button">
             <button type="button" class="btn btn-primary" (click)="leaveApplication()">Apply Leave</button>
         </div>
         <div class="leave-form" *ngIf="display_LeaveForm">
             <form #f="ngForm" (ngSubmit)="onApplyLeave(f)">
                 <div class="form-row col-xs-12">
-                    <div class="form-group col-md-4">
-                        <label for="from_Date">Select From Date</label>
+                    <div class="form-group col-md-2">
+                        <label for="from_Date">From Date</label>
                         <input type="date" id="from_Date" class="form-control" ngModel name="from_Date" required #from_Date="ngModel">
                         <span *ngIf="!from_Date.valid && from_Date.touched"></span>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="to_Date">Select To Date</label>
+                    <div class="form-group col-md-2">
+                        <label for="to_Date">To Date</label>
                         <input type="date" id="to_Date" class="form-control" ngModel name="to_Date" required #to_Date="ngModel">
                         <span *ngIf="!to_Date.valid && to_Date.touched"></span>
                     </div>

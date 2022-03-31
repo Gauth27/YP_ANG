@@ -37,13 +37,11 @@
 }
 
 .sideMenu-img {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     float: left;
     margin-right: 8px;
 }
-
-.sideMenu-label {}
 
 .sidebarMenu-selected {
     color: #0a58ca !important;
