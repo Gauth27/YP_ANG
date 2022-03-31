@@ -1,21 +1,14 @@
 <div class="sidebar">
     <ul class="sidebar-list">
-        <li class="sidebar-list-item" title="Home">
-            <a [routerLink]="['/home']" routerLinkActive="sidebarMenu-selected"><img class="sideMenu-img" src="/assets/home.png" alt="Home"><span class="sideMenu-label">Employee Home</span></a>
+        <li class="sidebar-list-item" title="Employee Home">
+            <a [routerLink]="['/home']" routerLinkActive="sidebarMenu-selected"><img class="sideMenu-img" src="/assets/home.svg" alt="Employee Home"><span class="sideMenu-label">Employee Home</span></a>
         </li>
         <li class="sidebar-list-item" title="Leave Management">
-            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg"
-                    class="sideMenu-img" alt="Leaves"><span class="sideMenu-label">Leave Management</span></a>
+            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/leave-management']"><img src="/assets/leave.svg" class="sideMenu-img" alt="Leave Management"><span class="sideMenu-label">Leave Management</span></a>
         </li>
-        <!-- <li *ngIf="is_admin" class="sidebar-list-item" title="Register New Employee">
-            <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/registerEmployee']">
-                <img src="/assets/regEmp.png" class="sideMenu-img" alt="Register Employee"><span class="sideMenu-label">Register New Employee</span>
-            </a>
-        </li> -->
-        <li *ngIf="is_admin" class="sidebar-list-item" title="View All Employees">
+        <li *ngIf="is_admin" class="sidebar-list-item" title="Employee Management">
             <a routerLinkActive="sidebarMenu-selected" [routerLink]="['/employeeList']">
-                <img src="/assets/allEmp.png" class="sideMenu-img" alt="View Employee"><span
-                    class="sideMenu-label">Employee Management</span>
+                <img src="/assets/empManage.svg" class="sideMenu-img" alt="Employee Management"><span class="sideMenu-label">Employee Management</span>
             </a>
         </li>
     </ul>
