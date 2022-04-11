@@ -4,12 +4,12 @@
             Add Employee
         </span>
         <div class="pop-up-EmployeeForm" *ngIf="displayForm">
-            <app-register-employee (close)="onCloseForm()"></app-register-employee>
+            <app-register-employee [employeeSelected]="employee" (close)="onCloseForm()"></app-register-employee>
         </div>
     </div>
     <div class="form-group col-md-4 bringing-adjacent">
-        <input type="text" class="form-control" placeholder="Search EMP by Name" 
-        [(ngModel)]="employeeSearch" (keyup)="fetchEmployeesByName(employeeSearch)">
+        <input type="text" class="form-control" placeholder="Search EMP by Name" [(ngModel)]="employeeSearch"
+            (keyup)="fetchEmployeesByName(employeeSearch)">
 
     </div>
     <div class="form-heading">List of Employees</div>
@@ -34,8 +34,8 @@
                         <td class="px-2 py-2 empDept">{{emp.department}}</td>
                         <td class="px-2 py-2 empRpt">{{emp.reporting}}</td>
                         <td class="px-2 py-2 empAction">
-                            <span class="edit" title="Edit" (click)="editEmployee()"></span>
-                            <span class="delete" title="Delete" (click)="deleteEmployee()"></span>
+                            <span class="edit" title="Edit" (click)="editEmployee(emp.id)"></span>
+                            <span class="delete" title="Delete" (click)="deleteEmployee(emp.id)"></span>
                             <span class="empDetails" title="Details" (click)="onClickDetails(emp.id)"></span>
                         </td>
                     </tr>
@@ -50,6 +50,10 @@
             <app-employee-details [employeeSelected]="employee" (close)="onClose()">
             </app-employee-details>
         </div>
+        <!-- <div class="pop-up" *ngIf="displayEditForm">
+            <app-edit-employee [employeeSelected]="employee" (close)="onCloseEditForm()">
+            </app-edit-employee>
+        </div> -->
     </div>
 
 </div>

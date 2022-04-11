@@ -1,18 +1,20 @@
 <div class="container">
-    <div class="form-heading">Add or Edit Employee</div>
+    <div class="form-heading">Update Employee Details</div>
     <div class="scroll-holder">
         <div class="col-xs-12">
-            <form #f="ngForm" (ngSubmit)="onRegister(f)">
+            <!-- <form #f="ngForm" (ngSubmit)="onUpdate(f)"> -->
+            <form #f="ngForm">
                 <div class="form-group col-md-4 bringing-adjacent">
                     <label for="name" class="form-item-required">Full Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Full Name"
-                        ngModel name="name" required maxlength="100" #name="ngModel">
+                        [ngModel]="employeeSelected.name" name="name" required maxlength="100" #name="ngModel">
                     <span class="validation-error" *ngIf="!name.valid && name.touched">Please enter Full Name</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="gender" class="form-item-required">Gender</label>
-                    <select id="gender" class="form-control" ngModel name="gender" required #gender="ngModel">
-                        <option selected>Select a gender</option>
+                    <select id="gender" class="form-control" [ngModel]="employeeSelected.gender" name="gender" required
+                        #gender="ngModel">
+                        <option>Select a gender</option>
                         <option>MALE</option>
                         <option>FEMALE</option>
                         <option>OTHERS</option>
@@ -21,7 +23,8 @@
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="blood_group">Blood Group</label>
-                    <select id="blood_group" class="form-control" ngModel name="blood_group">
+                    <select id="blood_group" class="form-control" [ngModel]="employeeSelected.blood_group"
+                        name="blood_group">
                         <option selected>Select a blood group</option>
                         <option>A+</option>
                         <option>A-</option>
@@ -35,64 +38,65 @@
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="dateOfBirth" class="form-item-required">Date Of Birth</label>
-                    <input type="date" id="dateOfBirth" class="form-control" ngModel name="dateOfBirth" required
-                        #dateOfBirth="ngModel">
+                    <input type="date" id="dateOfBirth" class="form-control" [ngModel]="employeeSelected.dateOfBirth"
+                        name="dateOfBirth" required #dateOfBirth="ngModel">
                     <span class="validation-error" *ngIf="!dateOfBirth.valid && dateOfBirth.touched">Date of Birth is
                         required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="highest_Qualification" class="form-item-required">Highest Qualification</label>
                     <input type="text" class="form-control" id="highest_Qualification"
-                        placeholder="Highest Qualification" ngModel name="highest_Qualification" required
-                        maxlength="200" #highest_Qualification="ngModel" />
+                        placeholder="Highest Qualification" [ngModel]="employeeSelected.highest_Qualification"
+                        name="highest_Qualification" required maxlength="200" #highest_Qualification="ngModel" />
                     <span class="validation-error"
                         *ngIf="!highest_Qualification.valid && highest_Qualification.touched">Qualification is
                         required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="pan" class="form-item-required">PAN</label>
-                    <input type="text" class="form-control" id="pan" placeholder="PAN" ngModel name="pan" required
-                        maxlength="10" #pan="ngModel" />
+                    <input type="text" class="form-control" id="pan" placeholder="PAN" [ngModel]="employeeSelected.pan"
+                        name="pan" required maxlength="10" #pan="ngModel" />
                     <span class="validation-error" *ngIf="!pan.valid && pan.touched">PAN is required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="aadhar" class="form-item-required">Aadhar Number</label>
-                    <input type="number" class="form-control" id="aadhar" placeholder="Aadhar Number" ngModel
-                        maxlength="12" name="aadhar" required #aadhar="ngModel" />
+                    <input type="number" class="form-control" id="aadhar" placeholder="Aadhar Number"
+                        [ngModel]="employeeSelected.aadhar" maxlength="12" name="aadhar" required #aadhar="ngModel" />
                     <span class="validation-error" *ngIf="!aadhar.valid && aadhar.touched">Aadhar number is
                         required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="passport">Passport</label>
-                    <input type="text" class="form-control" id="passport" placeholder="Passport" ngModel maxlength="20"
-                        name="passport" />
+                    <input type="text" class="form-control" id="passport" placeholder="Passport"
+                        [ngModel]="employeeSelected.passport" maxlength="20" name="passport" />
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="phone_number" class="form-item-required">Phone Number</label>
-                    <input type="number" class="form-control" id="phone_number" placeholder="Phone Number" ngModel
-                        name="phone_number" required #phone_number="ngModel" />
+                    <input type="number" class="form-control" id="phone_number" placeholder="Phone Number"
+                        [ngModel]="employeeSelected.phone_number" name="phone_number" required
+                        #phone_number="ngModel" />
                     <span class="validation-error" *ngIf="!phone_number.valid && phone_number.touched">Phone Number
                         is required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="emergency_contact_number" class="form-item-required">Emergency Contact Number</label>
                     <input type="number" class="form-control" id="emergency_contact_number"
-                        placeholder="Emergency Contact Number" ngModel name="emergency_contact_number" required
-                        #emergency_contact_number="ngModel" />
+                        placeholder="Emergency Contact Number" [ngModel]="employeeSelected.emergency_contact_number"
+                        name="emergency_contact_number" required #emergency_contact_number="ngModel" />
                     <span class="validation-error"
                         *ngIf="!emergency_contact_number.valid && emergency_contact_number.touched">Emergency
                         Contact Number is required</span>
                 </div>
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="email" class="form-item-required">Offcial Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Offcial Email" ngModel name="email"
+                    <input type="email" class="form-control" id="email" placeholder="Offcial Email" [ngModel]="employeeSelected.email" name="email"
                         maxlength="200" required #email="ngModel" />
                     <span class="validation-error" *ngIf="!email.valid && email.touched">Offcial Email is
                         required</span>
                 </div>
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="personal_email" class="form-item-required">Personal Email</label>
-                    <input type="email" class="form-control" id="personal_email" placeholder="Personal Email" ngModel
+                    <input type="email" class="form-control" id="personal_email" placeholder="Personal Email" [ngModel]="employeeSelected.personal_email"
                         name="personal_email" maxlength="200" required #personal_email="ngModel" />
                     <span class="validation-error" *ngIf="!personal_email.valid && personal_email.touched">Personal
                         Email is required</span>
@@ -100,18 +104,18 @@
                 <div class="form-group col-md-3 bringing-adjacent">
                     <label for="bank_account">Bank Account Number</label>
                     <input type="number" class="form-control" id="bank_account" placeholder="Bank Account Number"
-                        ngModel name="bank_account" #bank_account="ngModel" />
+                    [ngModel]="employeeSelected.bank_account" name="bank_account" #bank_account="ngModel" />
                 </div>
                 <div class="form-group col-md-5 bringing-adjacent">
                     <label for="address" class="form-item-required">Address</label>
-                    <textarea type="number" class="form-control" id="address" placeholder="Address" ngModel
-                        maxlength="500" name="address" required #address="ngModel"></textarea>
+                    <textarea type="number" class="form-control" id="address" placeholder="Address" [ngModel]="employeeSelected.address"
+                        maxlength="500" name="" required #address="ngModel"></textarea>
                     <span class="validation-error" *ngIf="!address.valid && address.touched">Address is
                         required</span>
                 </div>
                 <div class="form-group col-md-2 bringing-adjacent">
                     <label for="nationality" class="form-item-required">Country</label>
-                    <select id="nationality" class="form-control" ngModel name="nationality" required maxlength="200"
+                    <select id="nationality" class="form-control" [ngModel]="employeeSelected.nationality" name="nationality" required maxlength="200"
                         #nationality="ngModel">
                         <option selected>Choose...</option>
                         <option>INDIA</option>
@@ -205,7 +209,7 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
                         ngModel name="flexSwitchCheckChecked">
                 </div>
-                <button class="btn btn-primary" [disabled]="!(f.valid)">Save</button>
+                <button class="btn btn-primary" [disabled]="!(f.valid)">Update</button>
             </form>
         </div>
         <span class="btn btn-primary" (click)="onClose()">Close</span>

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
 import { LeaveService } from './leave-service';
+import { NotificationService } from "../notification.service";
+import { ToastrService } from 'ngx-toastr';
 
 import { NgForm } from '@angular/forms';
 
@@ -23,7 +25,9 @@ export class LeaveManagementComponent implements OnInit {
   };
 
   constructor(
-    private leaveService: LeaveService
+    private leaveService: LeaveService,
+    private toastr: ToastrService,
+    private notify: NotificationService,
   ) { }
 
   ngOnInit(): void {
@@ -52,27 +56,38 @@ export class LeaveManagementComponent implements OnInit {
     console.log('LEAVE DATA: ', leaveData)
     this.compareTwoDates(form)
     if (this.error.isError) {
-      this.leaveService.dateError()
+      this.dateError()
       console.error(this.error.errorMessage)
     }
     else {
       this.leaveService.leave_application(leaveData)
-      // this.fetchLeaveBalance()
-      this.ngOnInit()
+        .subscribe(
+          () => {
+            this.fetchLeaveBalance()
+            this.notify.showSuccess('Leave was applied', 'Success!!')
+          })
     }
   }
-
 
   compareTwoDates(form) {
     this.error.isError = false
     if (new Date(form.controls['to_Date'].value) < new Date(form.controls['from_Date'].value)) {
       this.error = {
         isError: true,
-        errorMessage: "End Date can't before start date"
+        errorMessage: "End Date can't be before start date"
       };
     }
   }
+
+  dateError() {
+    this.notify.showError("Check the Dates again!!\n End Date can't be before start date", 'Error')
+  }
+
+  showToasterSuccess() {
+    this.toastr.success("Data shown successfully !!")
+  }
+
+  showToasterError() {
+    this.toastr.error("From Date should be before To Date!")
+  }
 }
-
-
-

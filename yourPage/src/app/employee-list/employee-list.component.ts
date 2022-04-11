@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { hideLoading, showLoading } from '../app.component';
 import { TokenService } from '../auth/token.service';
 import { EmployeeService } from '../employee-details/employee.services';
+import { NotificationService } from "../notification.service";
+import { ToastrService } from 'ngx-toastr';
+
+import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -17,14 +21,20 @@ export class EmployeeListComponent implements OnInit {
   pageNum = 1;
   displayDetails = false;
   displayForm = false;
+  displayEditForm = false;
   employeeSelected = new EventEmitter<any>();
-  employeeSearch:string
+  addOrEdit = new EventEmitter<any>();
+  employeeSearch: string
+  isEdit: Boolean = false;
 
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
     private empService: EmployeeService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
+    private notify: NotificationService,
+    private confirmationDialogService: ConfirmationDialogService,
   ) {
 
   }
@@ -38,10 +48,8 @@ export class EmployeeListComponent implements OnInit {
   }
 
   fetchData() {
-    let url = 'http://127.0.0.1:8000/list?page=' + this.pageNum
-    this.http.get<{}>(url,
-      { headers: new HttpHeaders({ 'Authorization': this.authToken }) }
-    ).subscribe(
+    this.empService.fetchEmployees(this.pageNum)
+    .subscribe(
       (data) => {
         console.log(data['results'])
         data['results'].forEach(element => {
@@ -58,11 +66,11 @@ export class EmployeeListComponent implements OnInit {
   fetchEmployeesByName(name) {
     console.log('Name', name)
     this.empService.fetchEmployeesByName(name)
-    .subscribe(
-      (data)=> {
-        console.log(data)
-      }
-    )
+      .subscribe(
+        (data) => {
+          console.log(data)
+        }
+      )
   }
 
   checkScrollPos() {
@@ -102,14 +110,45 @@ export class EmployeeListComponent implements OnInit {
 
   onCloseForm() {
     this.displayForm = false;
+    this.employeesList = []  // IS this CORRECT??
+    this.fetchData()
   }
 
-  deleteEmployee() {
-    alert('Method to be implemented')
+  onCloseEditForm() {
+    this.displayEditForm = false;
+    this.employeesList = []  // IS this CORRECT??
+    this.fetchData()
   }
 
-  editEmployee() {
-    alert('Method to be implemented')
+  deleteEmployee(id: number) {
+    this.confirmationDialogService.confirm('Do you really want to Delete this Employee??')
+      // .then((confirmed) => console.log('User confirmed:', confirmed))
+      .then(() => {
+        this.empService.deleteEmployee(id)
+          .subscribe(
+            () => {
+              this.employeesList = []  // IS this CORRECT??
+              this.fetchData()
+              this.delEmpSuccess()
+            })
+      }).catch(() => console.log('User dismissed the dialog'));
+  }
+
+  editEmployee(id: number) {
+    showLoading();
+    this.isEdit = true;
+    this.empService.fetchEmployeeByID(id).subscribe(
+      (data) => {
+        this.employee = data
+        this.displayForm = true;
+        this.employeeSelected.emit(this.employee)
+        this.addOrEdit.emit(this.isEdit)
+        hideLoading();
+      })
+  }
+
+  delEmpSuccess() {
+    this.toastr.info("Employee was deleted successfully")
   }
 
 }

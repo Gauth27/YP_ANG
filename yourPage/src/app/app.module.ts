@@ -25,6 +25,9 @@ import { LeaveManagementComponent } from './leave-management/leave-management.co
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 FullCalendarModule.registerPlugins([ 
   interactionPlugin,
@@ -44,6 +47,8 @@ FullCalendarModule.registerPlugins([
     DashboardComponent,
     AlertComponent,
     LeaveManagementComponent,
+    ConfirmationDialogComponent,
+    EditEmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ FullCalendarModule.registerPlugins([
     InfiniteScrollModule,
     ScrollingModule,
     FullCalendarModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

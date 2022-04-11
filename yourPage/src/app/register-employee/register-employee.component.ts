@@ -1,10 +1,11 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
 import { TokenService } from '../auth/token.service';
 import { hideLoading, showLoading } from '../app.component';
+import { EmployeeService } from '../employee-details/employee.services';
 
 @Component({
   selector: 'app-register-employee',
@@ -13,6 +14,8 @@ import { hideLoading, showLoading } from '../app.component';
 })
 
 export class RegisterEmployeeComponent implements OnInit {
+  @Input() employeeSelected: any
+  @Input() addOrEdit: any
   @Output() close = new EventEmitter<void>()
 
   @ViewChild('f', { static: false }) registerForm: NgForm;
@@ -22,7 +25,9 @@ export class RegisterEmployeeComponent implements OnInit {
     public http: HttpClient,
     private toastr: ToastrService,
     private notify: NotificationService,
-    private tokenService: TokenService) { }
+    private tokenService: TokenService,
+    private empService: EmployeeService,
+    ) { }
 
   ngOnInit(): void {
     this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
@@ -35,10 +40,8 @@ export class RegisterEmployeeComponent implements OnInit {
     reader.readAsBinaryString(file);
     reader.onloadend = (e) => {
       form.value.photo_image = btoa(reader.result.toString());
-      this.http.post('http://127.0.0.1:8000/employee-registration',
-        JSON.stringify(form.value),
-        { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.authToken }) }
-      ).subscribe(
+      this.empService.registerEmployee(JSON.stringify(form.value))
+      .subscribe(
         result => {
           hideLoading();
           this.notify.showSuccess('New employee saved successfully.', 'Success')
