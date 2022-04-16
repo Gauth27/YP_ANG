@@ -49,18 +49,18 @@ export class EmployeeListComponent implements OnInit {
 
   fetchData() {
     this.empService.fetchEmployees(this.pageNum)
-    .subscribe(
-      (data) => {
-        console.log(data['results'])
-        data['results'].forEach(element => {
-          this.employeesList.push(element)
-        });
-        hideLoading();
-      },
-      error => {
-        hideLoading();
-        if (error.status == 401) { this.router.navigate(['login']); }
-      })
+      .subscribe(
+        (data) => {
+          console.log(data['results'])
+          data['results'].forEach(element => {
+            this.employeesList.push(element)
+          });
+          hideLoading();
+        },
+        error => {
+          hideLoading();
+          if (error.status == 401) { this.router.navigate(['login']); }
+        })
   }
 
   fetchEmployeesByName(name) {
@@ -111,14 +111,16 @@ export class EmployeeListComponent implements OnInit {
   onCloseForm() {
     this.displayForm = false;
     this.employeesList = []  // IS this CORRECT??
+    this.isEdit = false;
+    this.employee = {}
     this.fetchData()
   }
 
-  onCloseEditForm() {
-    this.displayEditForm = false;
-    this.employeesList = []  // IS this CORRECT??
-    this.fetchData()
-  }
+  // onCloseEditForm() {
+  //   this.displayEditForm = false;
+  //   this.employeesList = []  // IS this CORRECT??
+  //   this.fetchData()
+  // }
 
   deleteEmployee(id: number) {
     this.confirmationDialogService.confirm('Do you really want to Delete this Employee??')

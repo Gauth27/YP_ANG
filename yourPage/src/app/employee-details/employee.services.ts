@@ -51,4 +51,13 @@ export class EmployeeService {
             { headers: new HttpHeaders({ 'Authorization': this.authToken }) }
         )
     }
+
+    updateEmployeeDetails(id: number, data) {
+        this.authToken = 'Bearer ' + this.tokenService.retrieveToken()
+        return this.http.put(`http://127.0.0.1:8000/edit-employee/${id}`,
+            data,
+            { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.authToken }) }
+        )
+    }
+
 }
